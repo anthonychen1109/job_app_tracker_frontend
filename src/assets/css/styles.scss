@@ -1,0 +1,73 @@
+// ############### HOME ###############
+
+.home {
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  .overlay {
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
+// ############### NAVBAR ###############
+
+.navbar {
+  display: flex;
+  padding-top: 40px;
+  .navbarTitle {
+    padding-left: 40px;
+    h2 {
+      color: white;
+      text-shadow: 0px 0px 3px black;
+    }
+  }
+  .navbarNav {
+    display: flex;
+    padding-right: 40px;
+    div {
+      margin: 0 10px;
+      :hover {
+        cursor: pointer;
+      }
+      p {
+        color: white;
+        padding-top: 20px;
+        text-shadow: 0px 0px 3px black;
+      }
+    }
+  }
+}
+
+// ############### HOMEINFO ###############
+
+.homeInfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  div {
+    p, h1, h2 {
+      color: white;
+      text-shadow: 0px 0px 3px black;
+    }
+  }
+  .homeInfoMission {
+    background-color: rgba(0,0,0,0.5);
+    margin: 0 auto;
+    margin-top: -40px;
+    padding: 20px;
+    position: relative;
+    width: 50%;
+    z-index: 999;
+    transition: .3s;
+    .homeInfoLayer {
+      display: flex;
+    }
+    .homeInfoLayerText {
+      padding-left: 40px;
+    }
+  }
+}
