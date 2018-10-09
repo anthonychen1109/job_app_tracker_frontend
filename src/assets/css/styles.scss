@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 // ############### HOME ###############
 
 .home {
@@ -6,9 +16,9 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
   .overlay {
-    height: 100vh;
+    height: 90vh;
     background-color: rgba(0,0,0,0.3);
   }
 }
@@ -31,11 +41,14 @@
     div {
       margin: 0 10px;
       :hover {
+        color: black;
         cursor: pointer;
+        text-shadow: 0px 0px 3px white;
+        transition: .3s;
       }
       p {
         color: white;
-        padding-top: 20px;
+        padding-top: 10px;
         text-shadow: 0px 0px 3px black;
       }
     }
@@ -56,6 +69,7 @@
   }
   .homeInfoMission {
     background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
     margin: 0 auto;
     margin-top: -40px;
     padding: 20px;
@@ -70,4 +84,101 @@
       padding-left: 40px;
     }
   }
+}
+
+.homeInfoSignUp {
+  margin-top: 20px;
+}
+
+// ############### MAIN ###############
+
+.main {
+  background-image: url('https://www.buckinstitute.org/wp-content/themes/buck/assets/images/bg/bg_research_intro.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  padding-top: 40px;
+  .mainApplications {
+    background-color: #fbf5ee;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: -100px;
+    padding: 40px;
+    position: relative;
+    text-align: center;
+    transition: .3s;
+    width: 50%;
+    // z-index: 999;
+    h1 {
+      text-shadow: 0px 0px 3px white;
+    }
+  }
+  .mainApplicationsDisplay {
+    display: flex;
+  }
+}
+
+.mainDisplay {
+  display: flex;
+  flex-direction: column;
+  padding-right: 80px;
+  padding-top: 80px;
+  width: 80vw;
+  .mainDisplayTop {
+    div {
+      display: flex;
+    }
+    .mainDisplayTopHeader {
+      font-weight: bold;
+      width: 20vw;
+    }
+  }
+  .mainDisplayBottom {
+    padding-top: 80px;
+  }
+}
+
+// ############### SIDENAV ###############
+
+.sideNav {
+  padding: 40px;
+  width: 20vw;
+  z-index: 999;
+  div {
+    margin-bottom: 40px;
+    :hover {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      text-shadow: 0px 0px 3px black;
+      transition: .3s;
+    }
+  }
+}
+
+.faIcon {
+  margin-right: 10px;
+}
+
+// ############### SIGNUPMODAL ###############
+
+.signUpModal {
+  height: 50vh;
+  width: 30vw;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(25, 23, 23, 0.75) !important;
+}
+
+.modalHeader {
+  .modalCloseBtn {
+    position: relative;
+    float: right;
+  }
+}
+
+.modalSignupForm {
+  padding-top: 20px;
 }

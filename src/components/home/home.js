@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar/navbar';
 import HomeInfo from './homeInfo';
+import Main from '../main/main';
 
 class Home extends Component {
   render() {
@@ -10,6 +11,7 @@ class Home extends Component {
           <Navbar />
           <HomeInfo />
         </div>
+        <Main />
       </div>
     )
   }

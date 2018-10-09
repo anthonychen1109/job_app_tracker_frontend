@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
+import SignupForm from '../forms/signupForm';
 
 class HomeInfo extends Component {
+
+  state = {
+    username: '',
+    password: '',
+    confirmPassword: '',
+    hasAccount: ''
+  }
+
+  handleFormInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSignup = () => {
+    this.setState({
+      hasAccount: false
+    })
+  }
+
   render() {
     return (
       <div className="homeInfo container animated fadeInLeft">
         <div>
           <div>
-            <p>Open Doors</p>
+            <p>Job App Tracker</p>
           </div>
           <div>
             <h1>A mission to track your job hunting process</h1>
@@ -15,7 +36,11 @@ class HomeInfo extends Component {
             <p>See the current status of your applications</p>
           </div>
           <div>
-            <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+            <div className="homeInfoSignUp">
+              <button className="btn btn-primary" onClick={this.handleSignup}>
+                <SignupForm username={this.state.username} password={this.state.password} confirmPassword={this.state.confirmPassword} handleFormInput={this.handleFormInput} hasAccount={this.state.hasAccount}/>
+              </button>
+            </div>
           </div>
         </div>
         <div className="homeInfoMission">

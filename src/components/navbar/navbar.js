@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SignupForm from '../forms/signupForm';
+import LoginForm from '../forms/loginForm';
 
 class Navbar extends Component {
   render() {
@@ -7,22 +9,10 @@ class Navbar extends Component {
         <div className="navbarTitle"><h2>Job App Tracker</h2></div>
         <div className="navbarNav">
           <div>
-            <p>JOB INFO</p>
+            <SignupForm />
           </div>
           <div>
-            <p>COMPANY</p>
-          </div>
-          <div>
-            <p>TO-DO</p>
-          </div>
-          <div>
-            <p>NOTES</p>
-          </div>
-          <div>
-            <p>SIGN UP</p>
-          </div>
-          <div>
-            <p>LOG IN</p>
+            <LoginForm />
           </div>
         </div>
       </div>
