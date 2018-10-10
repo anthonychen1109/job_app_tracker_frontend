@@ -21,7 +21,12 @@ class LoginForm extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      userLoggedIn: true,
+      id: '',
+      username: '',
+      password: '',
+      hasToken: ''
     };
 
     this.openModal = this.openModal.bind(this);
@@ -37,11 +42,71 @@ class LoginForm extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({
+      modalIsOpen: false,
+      username: '',
+      password: ''
+    });
   }
 
+  handleFormInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  setToken = () => {
+  const token = localStorage.getItem("token")
+  if (token) {
+    this.setState({
+      hasToken: true
+    })
+  }
+}
+
+  handleLogin = (e) => {
+    e.preventDefault()
+    const newUser = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    fetch('http://localhost:8000/token-auth/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then(res => res.json())
+    .then(json => {
+      if (json.user) {
+      localStorage.setItem('token', json.token);
+      this.setToken()
+        this.setState({
+          userLoggedIn: true,
+          id: json.user.id,
+          username: json.user.username,
+        }, () => this.loggedInUser(this.state));
+      } else {
+        alert('Invalid Login')
+      }
+    });
+  }
+
+  loggedInUser = (user) => {
+    console.log(user);
+    this.closeModal()
+     // this.props.handleClose()
+     // this.props.history.push({
+     //   pathname: '/events',
+     //   state: {
+     //     id: this.state.id,
+     //     username: this.state.username
+     //   }
+     // })
+ }
+
   render() {
-    console.log(this.props.hasAccount);
     return (
       <div>
         <span onClick={this.openModal}><p>LOG IN</p></span>
@@ -52,7 +117,7 @@ class LoginForm extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-        <form className="signUpModal">
+        <form className="signUpModal" onSubmit={this.handleLogin}>
           <div className="modalHeader">
             <div>
               <button className="btn btn-danger modalCloseBtn" onClick={this.closeModal}>X</button>
@@ -63,11 +128,11 @@ class LoginForm extends React.Component {
           </div>
           <div className="form-group modalSignupForm">
             <label htmlFor="username">User Name</label>
-            <input type="email" className="form-control" id="username" placeholder="Enter User Name" name="username" onChange={this.props.handleFormInput} value={this.props.username}/>
+            <input type="text" className="form-control" id="username" placeholder="Enter User Name" name="username" onChange={this.handleFormInput} value={this.state.username}/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" id="password" placeholder="Password" name="password" onChange={this.props.handleFormInput} value={this.props.password}/>
+            <input type="password" className="form-control" id="password" placeholder="Password" name="password" onChange={this.handleFormInput} value={this.state.password}/>
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>

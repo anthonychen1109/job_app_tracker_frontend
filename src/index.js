@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import reducer from './reducers/root_reducer';
 
 import Home from './components/home/home';
+import MainDisplay from './components/main/mainDisplay';
 
 const store = createStore(reducer)
 
@@ -15,6 +16,7 @@ const routes = (
     <Provider store={store}>
       <Switch>
         <Route exact path='/' component={Home}/>
+        <Route path='/applications' component={Home} />
       </Switch>
     </Provider>
   </BrowserRouter>
