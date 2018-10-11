@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SignupForm from '../forms/signupForm';
 
 class HomeInfo extends Component {
 
@@ -38,7 +37,7 @@ class HomeInfo extends Component {
           <div>
             <div className="homeInfoSignUp">
               <button className="btn btn-primary" onClick={this.handleSignup}>
-                <SignupForm username={this.state.username} password={this.state.password} confirmPassword={this.state.confirmPassword} handleFormInput={this.handleFormInput} hasAccount={this.state.hasAccount}/>
+                Sign Up
               </button>
             </div>
           </div>

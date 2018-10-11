@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import SignupForm from '../forms/signupForm';
-import LoginForm from '../forms/loginForm';
 
 class Navbar extends Component {
 
@@ -29,10 +27,10 @@ class Navbar extends Component {
         <div className="navbarTitle"><h2>Job App Tracker</h2></div>
         <div className="navbarNav">
           <div>
-            <SignupForm username={this.state.username} password={this.state.password} confirmPassword={this.state.confirmPassword} handleFormInput={this.handleFormInput} hasAccount={this.state.hasAccount}/>
+            <p>Sign Up</p>
           </div>
           <div>
-            <LoginForm username={this.state.username} password={this.state.password} handleFormInput={this.handleFormInput} hasAccount={this.state.hasAccount}/>
+            <p>Login</p>
           </div>
         </div>
       </div>
