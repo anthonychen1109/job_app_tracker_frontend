@@ -55,8 +55,52 @@ class UserForm extends Component {
   }
 
 
-  handleSignup = (e) => {
+  handleSignUp = (e) => {
     e.preventDefault()
+    this.props.handleHide()
+    const newUser = {
+      username: this.state.username,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
+    }
+    if (this.state.password === this.state.confirmPassword) {
+      fetch('http://localhost:8000/api/users/', {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      })
+      .then( r => r.json() )
+      .then( json => {
+        localStorage.setItem('token', json.token)
+        this.setState({
+          id: json.id,
+          username: json.username,
+          first_name: json.first_name,
+          last_name: json.last_name
+        }, () => this.signedUpUser(newUser))
+      })
+    } else {
+      alert("Passwords don't match")
+      this.setState({
+        username: '',
+        password: '',
+        confirmPassword: ''
+      })
+    }
+  }
+
+  signedUpUser = (user) => {
+    this.props.handleHide()
+    this.props.history.push({
+      pathname: `/profiles/${this.state.id}`,
+      state: {
+        id: this.state.id,
+        username: this.state.username
+      }
+    })
   }
 
   userHasAccount = () => {
@@ -114,7 +158,7 @@ class UserForm extends Component {
           <Button.Group>
             <Button onClick={this.props.handleHide}>Cancel</Button>
             <Button.Or />
-            <Button positive onClick={this.handleLogin}>Submit</Button>
+            <Button positive onClick={this.handleSignUp}>Submit</Button>
           </Button.Group>
         </div>
       </div>
