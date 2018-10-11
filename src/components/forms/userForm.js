@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom';
 
 class UserForm extends Component {
 
   state = {
+    id: '',
     username: '',
     password: '',
     confirmPassword: ''
@@ -22,8 +24,36 @@ class UserForm extends Component {
       username: this.state.username,
       password: this.state.password,
     }
-    console.log(newUser);
+    fetch('http://localhost:8000/token-auth/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then( r => r.json() )
+    .then( json => {
+      if (json.user) {
+        localStorage.setItem('token', json.token)
+        this.setState({
+          id: json.user.id,
+          username: json.user.username
+        }, () => this.loggedInUser(this.state));
+      }
+    })
   }
+
+  loggedInUser = (user) => {
+    this.props.handleHide()
+    this.props.history.push({
+      pathname: `/profiles/${this.state.id}`,
+      state: {
+        id: this.state.id,
+        username: this.state.username
+      }
+    })
+  }
+
 
   handleSignup = (e) => {
     e.preventDefault()
@@ -100,4 +130,4 @@ class UserForm extends Component {
   }
 }
 
-export default UserForm;
+export default withRouter(UserForm);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Navbar extends Component {
 
@@ -14,21 +15,40 @@ class Navbar extends Component {
     })
   }
 
+  renderNav = () => {
+    return (
+      this.props.hasAccount
+      ?
+      <div className="navbarNav">
+        <div>
+          <p onClick={this.handleLogout}>Log Out</p>
+        </div>
+      </div>
+      :
+      <div className="navbarNav">
+        <div>
+          <p onClick={this.props.userSignUp}>Sign Up</p>
+        </div>
+        <div>
+          <p onClick={this.props.userLogIn}>Login</p>
+        </div>
+      </div>
+    )
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem("token")
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className="navbar">
         <div className="navbarTitle"><h2>Job App Tracker</h2></div>
-        <div className="navbarNav">
-          <div>
-            <p onClick={this.props.userSignUp}>Sign Up</p>
-          </div>
-          <div>
-            <p onClick={this.props.userLogIn}>Login</p>
-          </div>
-        </div>
+        {this.renderNav()}
       </div>
     )
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
