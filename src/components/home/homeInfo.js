@@ -37,7 +37,7 @@ class HomeInfo extends Component {
           <div>
             <div className="homeInfoSignUp">
               <button className="btn btn-primary" onClick={this.handleSignup}>
-                Sign Up
+                Explore
               </button>
             </div>
           </div>

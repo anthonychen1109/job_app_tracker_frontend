@@ -23,6 +23,10 @@ p {
   }
 }
 
+.dimmable {
+  height: 100vh;
+}
+
 // ############### NAVBAR ###############
 
 .navbar {
@@ -71,7 +75,7 @@ p {
     background-color: rgba(0,0,0,0.5);
     border-radius: 10px;
     margin: 0 auto;
-    margin-top: -40px;
+    margin-top: -10px;
     padding: 20px;
     position: relative;
     width: 50%;
@@ -161,24 +165,26 @@ p {
   margin-right: 10px;
 }
 
-// ############### SIGNUPMODAL ###############
+// ############### USERFORM ###############
 
-.signUpModal {
-  height: 50vh;
-  width: 30vw;
-}
-
-.ReactModal__Overlay {
-  background-color: rgba(25, 23, 23, 0.75) !important;
-}
-
-.modalHeader {
-  .modalCloseBtn {
-    position: relative;
-    float: right;
+.userForm {
+  background-color: white;
+  border-radius: 10px;
+  left: 50%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  .formHeader {
+    color: black;
   }
-}
-
-.modalSignupForm {
-  padding-top: 20px;
+  .formInputs div {
+    margin: 10px 0;
+    label {
+      color: black;
+    }
+  }
+  .formButtons {
+    margin-top: 40px;
+  }
 }

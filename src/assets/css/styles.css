@@ -17,6 +17,9 @@ p {
     height: 90vh;
     background-color: rgba(0, 0, 0, 0.3); }
 
+.dimmable {
+  height: 100vh; }
+
 .navbar {
   display: flex;
   padding-top: 40px; }
@@ -51,7 +54,7 @@ p {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin: 0 auto;
-    margin-top: -40px;
+    margin-top: -10px;
     padding: 20px;
     position: relative;
     width: 50%;
@@ -117,18 +120,21 @@ p {
 .faIcon {
   margin-right: 10px; }
 
-.signUpModal {
-  height: 50vh;
-  width: 30vw; }
-
-.ReactModal__Overlay {
-  background-color: rgba(25, 23, 23, 0.75) !important; }
-
-.modalHeader .modalCloseBtn {
-  position: relative;
-  float: right; }
-
-.modalSignupForm {
-  padding-top: 20px; }
+.userForm {
+  background-color: white;
+  border-radius: 10px;
+  left: 50%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+  .userForm .formHeader {
+    color: black; }
+  .userForm .formInputs div {
+    margin: 10px 0; }
+    .userForm .formInputs div label {
+      color: black; }
+  .userForm .formButtons {
+    margin-top: 40px; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -5,19 +5,12 @@ class Navbar extends Component {
   state = {
     username: '',
     password: '',
-    confirmPassword: '',
-    hasAccount: ''
+    confirmPassword: ''
   }
 
   handleFormInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
-
-  handleSignup = () => {
-    this.setState({
-      hasAccount: false
     })
   }
 
@@ -27,10 +20,10 @@ class Navbar extends Component {
         <div className="navbarTitle"><h2>Job App Tracker</h2></div>
         <div className="navbarNav">
           <div>
-            <p>Sign Up</p>
+            <p onClick={this.props.userSignUp}>Sign Up</p>
           </div>
           <div>
-            <p>Login</p>
+            <p onClick={this.props.userLogIn}>Login</p>
           </div>
         </div>
       </div>

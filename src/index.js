@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import reducer from './reducers/root_reducer';
+import 'semantic-ui-css/semantic.min.css';
 
 import Home from './components/home/home';
 import MainDisplay from './components/main/mainDisplay';
