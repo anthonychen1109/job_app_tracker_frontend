@@ -16,9 +16,9 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 90vh;
+  height: 80vh;
   .overlay {
-    height: 90vh;
+    height: 80vh;
     background-color: rgba(0,0,0,0.3);
   }
 }
@@ -36,6 +36,7 @@ p {
     padding-left: 40px;
     h2 {
       color: white;
+      font-size: 30px;
       text-shadow: 0px 0px 3px black;
     }
   }
@@ -52,6 +53,7 @@ p {
       }
       p {
         color: white;
+        font-size: 20px;
         padding-top: 10px;
         text-shadow: 0px 0px 3px black;
       }
@@ -68,6 +70,7 @@ p {
   div {
     p, h1, h2 {
       color: white;
+      line-height: 30px;
       text-shadow: 0px 0px 3px black;
     }
   }
@@ -75,7 +78,7 @@ p {
     background-color: rgba(0,0,0,0.5);
     border-radius: 10px;
     margin: 0 auto;
-    margin-top: -40px;
+    // margin-top: 8%;
     padding: 20px;
     position: relative;
     width: 50%;
@@ -200,4 +203,30 @@ p {
     height: 100vh;
     background-color: rgba(0,0,0,0.1);
   }
+}
+
+
+// ############### PROFILE ###############
+
+.profile {
+  background-image: url('https://www.buckinstitute.org/wp-content/themes/buck/assets/images/bg/bg_research_intro.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+}
+
+.mainApplicationsDisplay {
+  display: flex;
+}
+
+.profileApplications {
+  // background-color: #fbf5ee;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  transition: .3s;
+  width: 50%;
 }

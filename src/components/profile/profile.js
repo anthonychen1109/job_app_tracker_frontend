@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Navbar from '../navbar/navbar';
 import { connect } from 'react-redux';
 import { get_user, get_current_user } from '../profile/actions';
+import MainDisplay from '../main/mainDisplay';
+import SideNav from '../main/sideNav';
 
 const mapStateToProps = (state) => ({
   user: state.user
@@ -41,7 +43,26 @@ class Profile extends Component {
     return (
       <div className="application">
         <div className="overlay">
-          <Navbar hasAccount={this.state.hasAccount}/>
+          <div className="profile">
+            <div>
+              <Navbar hasAccount={this.state.hasAccount}/>
+            </div>
+            <div className="profileApplications">
+              <h1>Your Applications</h1>
+            </div>
+            <div className="mainApplicationsDisplay">
+              <div>
+                <SideNav handleJobInfo={this.handleJobInfo} handleCompany={this.handleCompany} handleTodo={this.handleTodo} handleNotes={this.handleNotes}/>
+              </div>
+              <div>
+                {
+                  this.state.term === ''
+                  ? <MainDisplay term={this.props.term} />
+                  : <MainDisplay term={this.state.term}/>
+                }
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )

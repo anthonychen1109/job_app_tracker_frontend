@@ -5,16 +5,16 @@ class SideNav extends Component {
     return (
       <div className="sideNav">
         <div>
-          <p><i className="fas fa-info-circle faIcon"></i>JOB INFO</p>
+          <p onClick={this.props.handleCompany}><i className="fas fa-building faIcon"></i>COMPANY</p>
         </div>
         <div>
-          <p><i className="fas fa-building faIcon"></i>COMPANY</p>
+          <p onClick={this.props.handleJobInfo}><i className="fas fa-info-circle faIcon"></i>JOB INFO</p>
         </div>
         <div>
-          <p><i className="fas fa-list-ul faIcon"></i>TO-DO</p>
+          <p onClick={this.props.handleTodo}><i className="fas fa-list-ul faIcon"></i>TO-DO</p>
         </div>
         <div>
-          <p><i className="fas fa-clipboard-list faIcon"></i>NOTES</p>
+          <p onClick={this.props.handleNotes}><i className="fas fa-clipboard-list faIcon"></i>NOTES</p>
         </div>
       </div>
     )

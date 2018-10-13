@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Navbar from '../navbar/navbar';
 import HomeInfo from './homeInfo';
 import Main from '../main/main';
-import { Button, Dimmer, Image, Header } from 'semantic-ui-react'
+import { Dimmer } from 'semantic-ui-react'
 import UserForm from '../forms/userForm';
 
 export default class Home extends Component {
