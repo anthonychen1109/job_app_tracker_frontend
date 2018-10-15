@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import JobInfo from './jobInfo';
-import Company from './company';
-import Todo from './todo';
-import Notes from './notes';
+import JobInfo from '../jobinfo/jobInfo';
+import Company from '../company/company';
+import Todo from '../todo/todo';
+import Notes from '../notes/notes';
 
 class MainDisplay extends Component {
 
