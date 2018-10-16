@@ -167,4 +167,13 @@ p {
   transition: .3s;
   width: 50%; }
 
+.card {
+  width: 18rem; }
+
+.displayCompanies {
+  padding-top: 40px; }
+
+.exampleCompany {
+  padding-top: 40px; }
+
 /*# sourceMappingURL=styles.css.map */
