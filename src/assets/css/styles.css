@@ -170,10 +170,19 @@ p {
 .card {
   width: 18rem; }
 
+.companyDiv {
+  margin: 10px; }
+
 .displayCompanies {
   padding-top: 40px; }
 
 .exampleCompany {
   padding-top: 40px; }
+
+.displayTodos {
+  padding-top: 40px; }
+
+.todoDiv {
+  margin: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

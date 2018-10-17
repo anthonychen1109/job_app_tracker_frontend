@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { get_current_user } from '../profile/actions';
 import { Card } from 'semantic-ui-react';
+import CompanyCard from './company_card';
 
 const mapStateToProps = (state) => {
   return {
@@ -36,18 +37,10 @@ class Company extends Component {
   renderCompanies = () => {
     if (this.props.current_user.current_user) {
       if (this.props.current_user.current_user.companies.length === 1) {
-        return <li>a</li>
+        return <CompanyCard company={this.props.current_user.current_user.companies[0]}/>
       } else if(this.props.current_user.current_user.companies.length > 1) {
         return this.props.current_user.current_user.companies.map( (company, index) => {
-          return (
-            <div key={index} className="card">
-              <div className="card-body">
-                <h5 className="card-title">{company.company_name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{company.contact}</h6>
-                <p className="card-text">{company.salary}</p>
-              </div>
-            </div>
-          )
+          return <CompanyCard key={index} company={company}/>
         })
       }
     } else {
@@ -75,7 +68,7 @@ class Company extends Component {
     console.log(this.props.current_user.current_user);
     return (
       <div>
-        Companies that you have applied to
+        <h1>Companies that you have applied to</h1>
         <div className="displayCompanies">
           {this.renderCompanies()}
         </div>
